@@ -1,0 +1,772 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Portfolio</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="acc51472-d9a5-83e9-944d-01c3e8723bd7" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1552751753-0fc84ae5b6c8?ixlib=rb-4.1.0&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 20.120000000000005%"/><h1 class="page-title" dir="auto">Portfolio</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><div id="80751472-d9a5-839b-af55-0118a4516926" class="column-list"><div style="display:contents" dir="auto"><div id="f6951472-d9a5-82cf-9960-81ce04d404fe" style="width:25%" class="column"><div style="display:contents" dir="ltr"><figure id="a1d51472-d9a5-826a-98fd-8129d34a5706" class="image"><a href="Portfolio/Screenshot_2026-01-31_at_9.04.33_AM.png"><img style="width:229.73523421588595px" src="Portfolio/Screenshot_2026-01-31_at_9.04.33_AM.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="6cb51472-d9a5-821b-853b-019e2eb8a2c5" class="block-color-default">Contact</h2></div><div style="display:contents" dir="auto"><hr id="d0e51472-d9a5-83ef-80b2-814f98162485"/></div><div style="display:contents" dir="auto"><h3 id="6c151472-d9a5-83dc-8335-8175d2876633" class=""><mark class="highlight-gray">📞 123-456-7891</mark></h3></div><div style="display:contents" dir="auto"><h3 id="72151472-d9a5-8349-beae-81d0681fc7cf" class=""><mark class="highlight-gray">✉️ email@gmail.com</mark></h3></div><div style="display:contents" dir="auto"><h3 id="19151472-d9a5-8358-ae80-811e32e10c9b" class=""><mark class="highlight-gray">📍 Location</mark></h3></div><div style="display:contents" dir="auto"><h3 id="20051472-d9a5-8230-8f02-01e495ace7e4" class=""><mark class="highlight-gray"> 🔗 LinkedIn Link</mark></h3></div><div style="display:contents" dir="auto"><hr id="bd851472-d9a5-82c4-bafc-015bab2bb47b"/></div><div style="display:contents" dir="auto"><p id="ca551472-d9a5-82f8-8a3a-014c9c038173" class="">
+</p></div><div style="display:contents" dir="auto"><p id="f6051472-d9a5-82c2-a011-813f2ad3f998" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="eb051472-d9a5-820c-a848-810727f81170" style="width:74.99999999999997%" class="column"><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="6e651472-d9a5-823a-a4d3-0104de3d44bb"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/bullseye_gray.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><h2 id="ba551472-d9a5-82d0-8dd5-01537b29bcf8" class="">About</h2></div><div style="display:contents" dir="auto"><hr id="a7051472-d9a5-828a-83d4-0186b95dcf14"/></div><div style="display:contents" dir="auto"><p id="c3951472-d9a5-833e-a95c-81e53a05b347" class="">I know how frustrating it can feel to have experience across different roles or fields — internships, part-time jobs, leadership, creative projects — and not know how to present it all in one cohesive, professional way. I struggled to find a personal website or portfolio that felt polished but still flexible enough to reflect everything I’ve done… so I decided to create one.</p></div><div style="display:contents" dir="auto"><p id="e2b51472-d9a5-82d1-9e7f-0179e556c3be" class="">If you’ve been meaning to build your portfolio but didn’t know where to start, I hope this makes it easier.</p></div><div style="display:contents" dir="auto"><p id="f7d51472-d9a5-8242-a58e-01d03b40c2f8" class="">And if this style isn’t quite your style, you can explore my other portfolio and personal site templates on my Notion profile: <strong><a href="https://www.notion.com/@lucymeryl?indexHtmlPath=index-web-en-US-38f8bfeec8f759ca">lucymeryl</a></strong></p></div></div></figure></div><div style="display:contents" dir="auto"><div id="26251472-d9a5-83b9-873d-816584910950" class="column-list"><div style="display:contents" dir="auto"><div id="76751472-d9a5-823f-8637-011ee46556a2" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="60251472-d9a5-8355-b6a0-81b73b2d2452"><div style="width:100%"><div style="display:contents" dir="auto"><h2 id="7d751472-d9a5-8284-9ff5-8141df75d13d" class=""><a href="Portfolio%20acc51472d9a583e9944d01c3e8723bd7.html">Skills</a></h2></div><div style="display:contents" dir="auto"><p id="e7f51472-d9a5-825c-8e11-816597711c28" class="">
+</p></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="51951472-d9a5-836b-a969-01c8f0a09ab6"><div style="width:100%"><div style="display:contents" dir="auto"><h2 id="03551472-d9a5-8338-9637-019f4f3df944" class=""><a href="Portfolio%20acc51472d9a583e9944d01c3e8723bd7.html">Awards</a></h2></div><div style="display:contents" dir="auto"><p id="ea251472-d9a5-8361-986b-81d24d8a82c1" class="">
+</p></div></div></figure></div></div></div><div style="display:contents" dir="auto"><div id="2c651472-d9a5-82a2-9a5d-810bae558883" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="b7f51472-d9a5-82f7-a756-817f566f68d0"><div style="width:100%"><div style="display:contents" dir="auto"><h2 id="8c251472-d9a5-83b4-816e-01981eed0f24" class=""><mark class="highlight-default"><a href="Portfolio%20acc51472d9a583e9944d01c3e8723bd7.html">Projects</a></mark></h2></div><div style="display:contents" dir="auto"><p id="4f651472-d9a5-829d-8d7c-01630b46d124" class="">
+</p></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="65051472-d9a5-82ef-bd27-019f4458c6c7"><div style="width:100%"><div style="display:contents" dir="auto"><h2 id="d4751472-d9a5-820e-98ae-01475aabda0d" class=""><a href="Portfolio%20acc51472d9a583e9944d01c3e8723bd7.html">Education</a></h2></div><div style="display:contents" dir="auto"><p id="61351472-d9a5-8263-a1fa-017a06a4d503" class="">
+</p></div></div></figure></div></div></div><div style="display:contents" dir="auto"><div id="2da51472-d9a5-8353-b710-814c3add62e3" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="b5e51472-d9a5-8379-82f8-81e6850a8647"><div style="width:100%"><div style="display:contents" dir="auto"><h2 id="fc751472-d9a5-833d-860d-01571637e973" class=""><a href="Portfolio%20acc51472d9a583e9944d01c3e8723bd7.html">Experience</a></h2></div><div style="display:contents" dir="auto"><p id="e5251472-d9a5-822d-9412-81b7c5ae56e4" class="">
+</p></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default callout" style="white-space:pre-wrap;display:flex" id="28c51472-d9a5-8202-a942-01db24589d05"><div style="width:100%"><div style="display:contents" dir="auto"><h2 id="dad51472-d9a5-8273-84f6-0138934cfcc5" class=""><a href="Portfolio%20acc51472d9a583e9944d01c3e8723bd7.html">Contact</a></h2></div><div style="display:contents" dir="auto"><p id="b2651472-d9a5-833b-ba10-011ac2319a29" class="">
+</p></div></div></figure></div></div></div></div></div><div style="display:contents" dir="ltr"><figure id="5c451472-d9a5-83a8-870c-0133c73cced0" class="image"><a href="Portfolio/6f9736e9-e8b3-44d6-8eb1-3a0f78997859.png"><img style="width:1220px" src="Portfolio/6f9736e9-e8b3-44d6-8eb1-3a0f78997859.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><div id="42251472-d9a5-83cc-b00a-819109911e91" class="column-list"><div style="display:contents" dir="auto"><div id="06a51472-d9a5-83ac-8691-81a5a5dc7b45" style="width:25%" class="column"><div style="display:contents" dir="auto"><p id="e9f51472-d9a5-8304-9a5f-8189d78a3fee" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="d3b51472-d9a5-83ee-80cd-81bc597725d3" class="image"><a href="Portfolio/a40418e9-2a7d-440a-a33f-0c1de58f8d07.png"><img style="width:1069.3416927899686px" src="Portfolio/a40418e9-2a7d-440a-a33f-0c1de58f8d07.png"/></a></figure></div><div style="display:contents" dir="ltr"><div id="83d51472-d9a5-83d6-be24-01862cb4e3df" class="collection-content"><h4 class="collection-title">Tools</h4><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Skill</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/kind_gray.svg" style="width:14px;height:14px;display:block"/></span>Type</th></tr></thead><tbody><tr id="73151472-d9a5-82bd-95e8-8111275376ba"><td class="cell-title"><a href="Portfolio/Tools/Google%20Workspace%2073151472d9a582bd95e88111275376ba.html"><img class="icon" src="Portfolio/Tools/Google%20Workspace/channels4_profile.jpg"/>Google Workspace</a></td><td class="cell-a&gt;JK"><span class="selected-value select-value-color-gray">Project Management</span></td></tr><tr id="e3651472-d9a5-82ba-a8bc-016f2c516bf5"><td class="cell-title"><a href="Portfolio/Tools/Notion%20e3651472d9a582baa8bc016f2c516bf5.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/notion_gray.svg"/>Notion</a></td><td class="cell-a&gt;JK"><span class="selected-value select-value-color-gray">Project Management</span></td></tr><tr id="09d51472-d9a5-830a-aea8-017e0572e076"><td class="cell-title"><a href="Portfolio/Tools/Airtable%2009d51472d9a5830aaea8017e0572e076.html"><img class="icon" src="Portfolio/Tools/Airtable/images-3.png"/>Airtable</a></td><td class="cell-a&gt;JK"><span class="selected-value select-value-color-gray">Project Management</span></td></tr><tr id="efd51472-d9a5-822c-8d03-819086db7748"><td class="cell-title"><a href="Portfolio/Tools/Canva%20efd51472d9a5822c8d03819086db7748.html"><img class="icon" src="Portfolio/Tools/Canva/images-2.jpg"/>Canva</a></td><td class="cell-a&gt;JK"><span class="selected-value select-value-color-gray">Design Tool</span></td></tr><tr id="d8a51472-d9a5-83da-ba8f-01f2d9119ce9"><td class="cell-title"><a href="Portfolio/Tools/Wordpress%20d8a51472d9a583daba8f01f2d9119ce9.html"><img class="icon" src="Portfolio/Tools/Wordpress/images-1.png"/>Wordpress</a></td><td class="cell-a&gt;JK"><span class="selected-value select-value-color-gray">Website Builder</span></td></tr><tr id="0d451472-d9a5-8266-a8e0-01c871b45c57"><td class="cell-title"><a href="Portfolio/Tools/Capcut%200d451472d9a58266a8e001c871b45c57.html"><img class="icon" src="Portfolio/Tools/Capcut/images-2.png"/>Capcut</a></td><td class="cell-a&gt;JK"><span class="selected-value select-value-color-gray">Design Tool</span></td></tr></tbody></table></div><br/><br/></div></div><div style="display:contents" dir="auto"><h2 id="fc651472-d9a5-82d3-a9b3-817a1c71a12d" class="block-color-default">Soft Skills</h2></div><div style="display:contents" dir="auto"><hr id="1db51472-d9a5-83f3-8c01-81b66ad56799"/></div><div style="display:contents" dir="ltr"><figure class="block-color-brown callout" style="white-space:pre-wrap;display:flex" id="6a451472-d9a5-83b4-8fb9-81b14dccae77"><div style="width:100%"><div style="display:contents" dir="auto"><p id="12c51472-d9a5-820b-b164-01cf7c09bd7d" class=""><mark class="highlight-default"><strong>Communication:</strong></mark><mark class="highlight-default"> </mark></p></div><div style="display:contents" dir="auto"><p id="bba51472-d9a5-83d6-9ce3-01d686984146" class=""><mark class="highlight-default">Effective listening, speaking, and writing.</mark></p></div><div style="display:contents" dir="auto"><p id="b1e51472-d9a5-827d-b8f8-01b67f9c9d94" class="">
+</p></div><div style="display:contents" dir="auto"><p id="b8051472-d9a5-8252-8aeb-8146caeda895" class=""><mark class="highlight-default"><strong>Interpersonal Skills:</strong></mark><mark class="highlight-default"> </mark></p></div><div style="display:contents" dir="auto"><p id="7ef51472-d9a5-83bf-9c1d-01d544e7f314" class=""><mark class="highlight-default">Teamwork, empathy, and conflict resolution.</mark></p></div><div style="display:contents" dir="auto"><p id="68351472-d9a5-8336-a17f-0166c39f6b86" class="">
+</p></div><div style="display:contents" dir="auto"><p id="60c51472-d9a5-82db-9269-01848576aa40" class=""><mark class="highlight-default"><strong>Thinking/Analytical:</strong></mark><mark class="highlight-default"> </mark></p></div><div style="display:contents" dir="auto"><p id="6f951472-d9a5-82e5-9251-01dc4c66bafb" class=""><mark class="highlight-default">Problem-solving, creativity, and critical thinking.</mark></p></div><div style="display:contents" dir="auto"><p id="4fd51472-d9a5-82cd-bde0-0115b1290e28" class="">
+</p></div><div style="display:contents" dir="auto"><p id="9ba51472-d9a5-8310-8850-81649318f211" class=""><mark class="highlight-default"><strong>Personal Attributes:</strong></mark><mark class="highlight-default"> </mark></p></div><div style="display:contents" dir="auto"><p id="aaa51472-d9a5-82e1-ad13-01574484b410" class=""><mark class="highlight-default">Adaptability, time management, work ethic, and motivation.</mark></p></div></div></figure></div><div style="display:contents" dir="auto"><p id="5c251472-d9a5-82bc-a93d-816e0763c0e6" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="40d51472-d9a5-839a-b64a-014b42ba1345" class="block-color-default">Awards</h2></div><div style="display:contents" dir="auto"><hr id="b7651472-d9a5-833c-8f4f-01961e703397"/></div><div style="display:contents" dir="ltr"><figure class="block-color-brown callout" style="white-space:pre-wrap;display:flex" id="56f51472-d9a5-83fa-b991-81e27b924519"><div style="width:100%"><div style="display:contents" dir="auto"><p id="5b951472-d9a5-8293-a2e5-016e7b6bc006" class=""><mark class="highlight-default"><strong>Google Analytics Certified</strong></mark></p></div><div style="display:contents" dir="auto"><p id="57b51472-d9a5-8366-9ab3-8190c3d66685" class=""><mark class="highlight-default">Professional certification demonstrating proficiency in website analytics and performance tracking.</mark></p></div><div style="display:contents" dir="auto"><p id="6ae51472-d9a5-8203-8caf-0128dfd28e0f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="bf551472-d9a5-8308-a356-8170b1134595" class=""><mark class="highlight-default"><strong>Resident Assistant Recognition</strong></mark></p></div><div style="display:contents" dir="auto"><p id="ecf51472-d9a5-82f5-8b8f-81f26ac3fd5e" class=""><mark class="highlight-default">Recognized for leadership, community building, and peer support in residential life.</mark></p></div><div style="display:contents" dir="auto"><p id="45651472-d9a5-8343-adf8-010d62b50989" class="">
+</p></div><div style="display:contents" dir="auto"><p id="be951472-d9a5-83a7-8aaf-8109c85cdd73" class=""><mark class="highlight-default"><strong>Service Hours Milestone Award (100+ Hours)</strong></mark></p></div><div style="display:contents" dir="auto"><p id="23451472-d9a5-83a9-a381-812a51a94a30" class=""><mark class="highlight-default">Awarded for completing over 100 hours of community service.</mark></p></div><div style="display:contents" dir="auto"><p id="31651472-d9a5-83f1-934a-816583575052" class="">
+</p></div><div style="display:contents" dir="auto"><p id="75351472-d9a5-8261-b4c2-01f56fc2acae" class=""><mark class="highlight-default"><strong>Dean’s List</strong></mark><mark class="highlight-default"> — Fall 2023, Spring 2024</mark></p></div><div style="display:contents" dir="auto"><p id="7de51472-d9a5-837a-905a-013356737a72" class=""><mark class="highlight-default">Honored for academic excellence and high GPA achievement.</mark></p></div><div style="display:contents" dir="auto"><p id="2ea51472-d9a5-82a2-9b52-819867306c2c" class="">
+</p></div><div style="display:contents" dir="auto"><p id="3d851472-d9a5-8290-9d07-01b2f2850f2f" class=""><mark class="highlight-default"><strong>Capstone Project Recognition</strong></mark></p></div><div style="display:contents" dir="auto"><p id="19f51472-d9a5-8239-b0f2-015f16e60651" class=""><mark class="highlight-default">Recognized for successful completion and presentation of a final capstone project.</mark></p></div><div style="display:contents" dir="auto"><p id="ba451472-d9a5-83a6-8163-0185481c8624" class="">
+</p></div><div style="display:contents" dir="auto"><p id="e9e51472-d9a5-8240-860b-01a3f1661150" class=""><mark class="highlight-default"><strong>Study Abroad Participation Certificate</strong></mark></p></div><div style="display:contents" dir="auto"><p id="80951472-d9a5-83ee-a320-0167f55c9adb" class=""><mark class="highlight-default">Completed an international academic program with a focus on cultural immersion and global learning.</mark></p></div><div style="display:contents" dir="auto"><p id="70d51472-d9a5-8301-9a2d-81223706e7da" class="">
+</p></div><div style="display:contents" dir="auto"><p id="66f51472-d9a5-8375-beaa-016176abb092" class=""><mark class="highlight-default"><strong>Scholarship Recipient (Merit-Based / Need-Based)</strong></mark></p></div><div style="display:contents" dir="auto"><p id="16651472-d9a5-8376-b802-81ff7188a733" class=""><mark class="highlight-default">Awarded financial support in recognition of academic achievement and/or demonstrated need.</mark></p></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="59251472-d9a5-8375-b539-018a8b8e3ab3"><div style="width:100%"><div style="display:contents" dir="auto"><p id="cab51472-d9a5-838c-a3e0-0163fc6bd177" class="">Name | Email | LinkedIn</p></div></div></figure></div></div></div><div style="display:contents" dir="auto"><div id="feb51472-d9a5-8211-bdab-01d3a308c223" style="width:75%" class="column"><div style="display:contents" dir="auto"><h1 id="ed951472-d9a5-820b-8bb3-01b5e3543a09" class="block-color-default">Projects</h1></div><div style="display:contents" dir="ltr"><div id="bc351472-d9a5-83a5-a58b-8123a7fee04f" class="collection-content"><h4 class="collection-title">Click on a project to view more.</h4><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Tags</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>What I did</th></tr></thead><tbody><tr id="e3551472-d9a5-82c1-9391-810b5d91208b"><td class="cell-title"><a href="Portfolio/Projects/Click%20on%20a%20project%20to%20view%20more./Project%201%20e3551472d9a582c19391810b5d91208b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/movie-camera_yellow.svg"/>Project 1</a></td><td class="cell-Uxtf"><span class="selected-value select-value-color-purple">Project Management</span><span class="selected-value select-value-color-gray">Social Media</span><span class="selected-value select-value-color-purple">Video Editing</span><span class="selected-value select-value-color-blue">Writing</span></td><td class="cell-phqy">What actions did you personally take?<br/>- Outline your responsibilities and role<br/>- Mention key tasks, tools, or skills you used<br/>- Focus on what you contributed (even in group projects)</td></tr><tr id="bc051472-d9a5-83a4-bfc3-01348cb2d37f"><td class="cell-title"><a href="Portfolio/Projects/Click%20on%20a%20project%20to%20view%20more./Project%202%20bc051472d9a583a4bfc301348cb2d37f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/attachment_yellow.svg"/>Project 2 </a></td><td class="cell-Uxtf"><span class="selected-value select-value-color-red">Communication</span><span class="selected-value select-value-color-orange">Data Analytics</span><span class="selected-value select-value-color-blue">Reporting</span><span class="selected-value select-value-color-yellow">Strategy</span></td><td class="cell-phqy">Example prompt:I was responsible for [task or role]. I used [tools, methods, or skills] to [action], and collaborated with [people/team] to complete the project.</td></tr><tr id="e4c51472-d9a5-8378-bca3-01115f48bb4b"><td class="cell-title"><a href="Portfolio/Projects/Click%20on%20a%20project%20to%20view%20more./Project%203%20e4c51472d9a58378bca301115f48bb4b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/history_yellow.svg"/>Project 3</a></td><td class="cell-Uxtf"><span class="selected-value select-value-color-red">Communication</span><span class="selected-value select-value-color-pink">Graphic Design</span><span class="selected-value select-value-color-purple">Project Management</span><span class="selected-value select-value-color-green">Research</span><span class="selected-value select-value-color-brown">Website Design</span></td><td class="cell-phqy">I was responsible for [task or role]. I used [tools, methods, or skills] to [action], and collaborated with [people/team] to complete the project.</td></tr><tr id="a9851472-d9a5-8279-80d6-01f75f7e4f03"><td class="cell-title"><a href="Portfolio/Projects/Click%20on%20a%20project%20to%20view%20more./Project%204%20a9851472d9a5827980d601f75f7e4f03.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/drafts_yellow.svg"/>Project 4</a></td><td class="cell-Uxtf"><span class="selected-value select-value-color-blue">Reporting</span><span class="selected-value select-value-color-green">Research</span><span class="selected-value select-value-color-yellow">Strategy</span><span class="selected-value select-value-color-blue">Writing</span></td><td class="cell-phqy"><em>What actions did you personally take?</em><br/>• Outline your responsibilities and role<br/>• Mention key tasks, tools, or skills you used<br/>• Focus on what <strong>you</strong> contributed (even in group projects)</td></tr></tbody></table></div><br/><br/></div></div><div style="display:contents" dir="auto"><h1 id="c4251472-d9a5-827e-b051-01db1cd37f02" class="">Experience</h1></div><div style="display:contents" dir="auto"><hr id="cf551472-d9a5-83b5-9ff0-8184f7c914df"/></div><div style="display:contents" dir="auto"><div id="7b851472-d9a5-8307-a872-014acdcbe9c0" class="column-list"><div style="display:contents" dir="auto"><div id="16c51472-d9a5-8385-b25c-01327dcdaac8" style="width:12.5%" class="column"><div style="display:contents" dir="ltr"><figure id="5e451472-d9a5-822a-8b42-018495d47187" class="image"><a href="Portfolio/Screenshot_2026-02-01_at_4.27.59_PM.png"><img style="width:240px" src="Portfolio/Screenshot_2026-02-01_at_4.27.59_PM.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="93451472-d9a5-83a6-b793-01cf0c071d2a" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="76251472-d9a5-83f4-bb2c-018c66c44fbc" style="width:87.5%" class="column"><div style="display:contents" dir="auto"><p id="b9c51472-d9a5-8241-af58-016101c83c5f" class=""><strong>Job Title</strong> — <em><mark class="highlight-gray"><strong>Company / Organization Name</strong></mark></em></p></div><div style="display:contents" dir="auto"><p id="e6d51472-d9a5-83f7-ad67-816cac4ee8f1" class="">Month Year – Month Year or Present</p></div><div style="display:contents" dir="auto"><ul id="25b51472-d9a5-8297-8964-01cc2b46dfda" class="bulleted-list"><li style="list-style-type:disc">Assisted with day-to-day operations and team projects</li></ul></div><div style="display:contents" dir="auto"><ul id="46551472-d9a5-820c-a69e-81ef12062a25" class="bulleted-list"><li style="list-style-type:disc">Communicated with customers, clients, or stakeholders</li></ul></div><div style="display:contents" dir="auto"><ul id="64a51472-d9a5-82e9-bd6d-01224968b8a1" class="bulleted-list"><li style="list-style-type:disc">Managed tasks independently and met deadlines</li></ul></div><div style="display:contents" dir="auto"><ul id="8d251472-d9a5-8271-bc2a-0134f7cc47ec" class="bulleted-list"><li style="list-style-type:disc">Supported team goals through collaboration and organization</li></ul></div><div style="display:contents" dir="auto"><div id="f5451472-d9a5-831b-a96e-011156ef455f" class="column-list"><div style="display:contents" dir="auto"><div id="0e551472-d9a5-8281-96c9-81da0ed6c9d7" style="width:41.666666666666664%" class="column"><div style="display:contents" dir="auto"><p id="10b51472-d9a5-83cd-8a6e-01edcdea1c85" class="">Projects: </p></div></div></div><div style="display:contents" dir="auto"><div id="6fc51472-d9a5-8329-982f-01f95ae5e192" style="width:50%" class="column"></div></div><div style="display:contents" dir="auto"><div id="68b51472-d9a5-834c-810b-8175e221a113" style="width:150%" class="column"></div></div></div></div></div></div></div></div><div style="display:contents" dir="auto"><div id="e6451472-d9a5-83f2-a79d-81e13035392d" class="column-list"><div style="display:contents" dir="auto"><div id="dba51472-d9a5-82f3-9a33-81347f44ed00" style="width:12.5%" class="column"><div style="display:contents" dir="ltr"><figure id="1b751472-d9a5-8279-8e92-81cee36dfc5e" class="image"><a href="Portfolio/Screenshot_2026-02-01_at_4.27.44_PM.png"><img style="width:84px" src="Portfolio/Screenshot_2026-02-01_at_4.27.44_PM.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="99e51472-d9a5-8394-bd73-81b362e8cd3a" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="a1451472-d9a5-8239-8c24-81a9a58ad0af" style="width:100%" class="column"><div style="display:contents" dir="auto"><p id="42851472-d9a5-8225-b3f8-818f2b51672a" class=""><strong>Internship Title</strong> — <em><mark class="highlight-gray"><strong>Company / Organization Name</strong></mark></em></p></div><div style="display:contents" dir="auto"><p id="53d51472-d9a5-83ea-832a-81c3f28eae58" class="">Month Year – Month Year or Present</p></div><div style="display:contents" dir="auto"><ul id="f8551472-d9a5-82ef-bbc7-81fb0babc5f1" class="bulleted-list"><li style="list-style-type:disc">Gained hands-on experience in [Industry/Field]</li></ul></div><div style="display:contents" dir="auto"><ul id="83e51472-d9a5-831a-8cfd-81dd3bc3e693" class="bulleted-list"><li style="list-style-type:disc">Supported projects related to [Skill or Tool]</li></ul></div><div style="display:contents" dir="auto"><ul id="3cc51472-d9a5-8214-956a-012db065940c" class="bulleted-list"><li style="list-style-type:disc">Conducted research, analysis, or content creation</li></ul></div><div style="display:contents" dir="auto"><ul id="f2251472-d9a5-824d-bf83-81d7f1b20055" class="bulleted-list"><li style="list-style-type:disc">Presented findings or updates to team members</li></ul></div></div></div></div></div><div style="display:contents" dir="auto"><div id="3a451472-d9a5-8224-a915-01ff54d453c1" class="column-list"><div style="display:contents" dir="auto"><div id="71c51472-d9a5-8230-980a-01811269747f" style="width:12.5%" class="column"><div style="display:contents" dir="ltr"><figure id="26e51472-d9a5-825e-8108-01d44146ac01" class="image"><a href="Portfolio/images.jpg"><img style="width:120px" src="Portfolio/images.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="0bf51472-d9a5-835f-9bb7-01e2e216572b" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="0ce51472-d9a5-82f3-94d3-81c224751126" style="width:106.25%" class="column"><div style="display:contents" dir="auto"><p id="18551472-d9a5-8388-9459-81dd7edf365b" class=""><strong>Leadership Role</strong> — <em><mark class="highlight-gray"><strong>Company / Organization Name</strong></mark></em></p></div><div style="display:contents" dir="auto"><p id="3b951472-d9a5-82a0-aca7-8106a3e54ee3" class="">Month Year – Month Year or Present</p></div><div style="display:contents" dir="auto"><ul id="21b51472-d9a5-831d-bafa-81efc8081602" class="bulleted-list"><li style="list-style-type:disc">Led meetings and coordinated events or initiatives</li></ul></div><div style="display:contents" dir="auto"><ul id="cf551472-d9a5-8337-a6ff-819ed042001e" class="bulleted-list"><li style="list-style-type:disc">Collaborated with a team of [#] members</li></ul></div><div style="display:contents" dir="auto"><ul id="4e851472-d9a5-838c-ac1d-015347bea2b0" class="bulleted-list"><li style="list-style-type:disc">Helped grow engagement or participation</li></ul></div></div></div></div></div><div style="display:contents" dir="auto"><div id="0f051472-d9a5-822d-8d8a-01bed0793141" class="column-list"><div style="display:contents" dir="auto"><div id="51151472-d9a5-832e-862f-01dc596ce75f" style="width:12.5%" class="column"><div style="display:contents" dir="ltr"><figure id="68551472-d9a5-82c2-82a9-01b86ea5c317" class="image"><a href="Portfolio/images-1.png"><img style="width:240px" src="Portfolio/images-1.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="d9751472-d9a5-8307-99ac-01c05a1db525" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="bd551472-d9a5-8356-a2fb-81a08d644081" style="width:112.50000000000003%" class="column"><div style="display:contents" dir="auto"><p id="6a851472-d9a5-837c-9ef2-8176971b3649" class=""><strong>Job Title</strong> — <em><mark class="highlight-gray"><strong>Company / Organization Name</strong></mark></em></p></div><div style="display:contents" dir="auto"><p id="02751472-d9a5-837f-92e3-81bcf8ac087e" class="">Month Year – Month Year or Present</p></div><div style="display:contents" dir="auto"><ul id="56251472-d9a5-831a-88ac-81903571ddec" class="bulleted-list"><li style="list-style-type:disc">Assisted with events, outreach, or administrative tasks</li></ul></div></div></div></div></div><div style="display:contents" dir="auto"><h1 id="75151472-d9a5-8243-9d6c-01634f7ba532" class="">Education</h1></div><div style="display:contents" dir="auto"><hr id="f8051472-d9a5-82df-b8ac-01821993c641"/></div><div style="display:contents" dir="auto"><div id="cbb51472-d9a5-8236-829d-813550c76d17" class="column-list"><div style="display:contents" dir="auto"><div id="b4e51472-d9a5-8284-8937-01ebb8e1970c" style="width:6.25%" class="column"><div style="display:contents" dir="ltr"><figure id="09051472-d9a5-82f1-a962-01c23b640115" class="image"><a href="Portfolio/Screenshot_2026-02-01_at_4.27.44_PM%201.png"><img style="width:96px" src="Portfolio/Screenshot_2026-02-01_at_4.27.44_PM%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="abb51472-d9a5-8241-af4c-01cfc4260369" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="cd551472-d9a5-827d-8e1d-011e15bb0491" style="width:93.75%" class="column"><div style="display:contents" dir="auto"><p id="46f51472-d9a5-8251-80b3-0199f367600a" class=""><strong>University Name</strong><br/><mark class="highlight-gray"><strong>Bachelor of Arts / Science in [Major]</strong></mark><br/>Start Month Year – End Month Year or Expected</p></div><div style="display:contents" dir="auto"><p id="11f51472-d9a5-8362-8da0-8134b08376e1" class="">GPA: X.XX</p></div><div style="display:contents" dir="auto"><p id="29151472-d9a5-8369-8fde-81e46e0969c1" class="">Academic focus areas: Focus Area 1, Focus Area 2</p></div><div style="display:contents" dir="auto"><p id="8e851472-d9a5-827c-8ab7-8129017b0b5e" class="">Honors &amp; awards: Award Name, Award Name</p></div><div style="display:contents" dir="auto"><p id="dd851472-d9a5-8298-b5e2-016b50349cb4" class="">Activities &amp; involvement: Club/Organization, Role</p></div></div></div></div></div><div style="display:contents" dir="auto"><div id="acc51472-d9a5-8315-9c22-018dc8e47575" class="column-list"><div style="display:contents" dir="auto"><div id="f8b51472-d9a5-830e-a869-816d50051c95" style="width:6.25%" class="column"><div style="display:contents" dir="ltr"><figure id="2ae51472-d9a5-8349-b744-0136daecd3d6" class="image"><a href="Portfolio/Screenshot_2026-02-01_at_4.27.52_PM.png"><img style="width:108px" src="Portfolio/Screenshot_2026-02-01_at_4.27.52_PM.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="26a51472-d9a5-82b3-a506-81bff26afd9c" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="ccf51472-d9a5-832e-9b0c-01a13452e7d0" style="width:106.25%" class="column"><div style="display:contents" dir="auto"><p id="81051472-d9a5-82a1-b529-01f75dff304c" class=""><strong>Study Abroad Program</strong></p></div><div style="display:contents" dir="auto"><p id="55051472-d9a5-8333-9bad-01b21dc12a60" class=""><mark class="highlight-gray"><strong>University or Program Name</strong></mark></p></div><div style="display:contents" dir="auto"><p id="1d451472-d9a5-83ed-be60-81f24a8e1a96" class="">Semester, Year</p></div><div style="display:contents" dir="auto"><ul id="8a651472-d9a5-8349-90ae-015edb9d6cf4" class="bulleted-list"><li style="list-style-type:disc">Coursework in Subject Area</li></ul></div><div style="display:contents" dir="auto"><ul id="8e351472-d9a5-834c-93aa-0178bbfc77c5" class="bulleted-list"><li style="list-style-type:disc">Cross-cultural collaboration and global learning experience</li></ul></div><div style="display:contents" dir="auto"><ul id="05e51472-d9a5-837b-98d7-814d3f76f53a" class="bulleted-list"><li style="list-style-type:disc">Independent travel and project-based learning</li></ul></div><div style="display:contents" dir="auto"><ul id="73a51472-d9a5-83f5-bc94-818ea5edd348" class="bulleted-list"><li style="list-style-type:disc">Developed adaptability, communication, and problem-solving skills</li></ul></div><div style="display:contents" dir="auto"><p id="b5e51472-d9a5-836c-9f9b-015841c32b87" class="">
+</p></div><div style="display:contents" dir="auto"><p id="bd751472-d9a5-8260-a861-019fa6549fd0" class=""><strong>Online Learning &amp; Certifications</strong></p></div><div style="display:contents" dir="auto"><p id="f1e51472-d9a5-8316-accf-81eb5ed1ce56" class=""><em>Platform Name</em> — Year</p></div><div style="display:contents" dir="auto"><ul id="ef651472-d9a5-8241-8e06-01d9dd6fa0a1" class="bulleted-list"><li style="list-style-type:disc">Course or Certification Name</li></ul></div><div style="display:contents" dir="auto"><ul id="87751472-d9a5-829b-97ad-81a6a4f03982" class="bulleted-list"><li style="list-style-type:disc">Focus areas: Skill/Topic, Skill/Topics</li></ul></div><div style="display:contents" dir="auto"><p id="42c51472-d9a5-8253-966c-818eac2db7be" class="">
+</p></div><div style="display:contents" dir="auto"><p id="91451472-d9a5-8264-80ca-01101337c676" class="">
+</p></div></div></div></div></div><div style="display:contents" dir="ltr"><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="d9051472-d9a5-82c4-92b5-017609449be2"><div style="width:100%"><div style="display:contents" dir="auto"><p id="29351472-d9a5-821f-9cdf-01ab4d31a9bc" class="">And if this template doesn’t feel like the perfect fit, I’ve got you. Everyone’s personal brand looks a little different. Contact me to personalize your own, or explore more of my portfolio and personal site templates — with different layouts, vibes, and structures — on my Notion profile, <strong><a href="https://www.notion.com/@lucymeryl?indexHtmlPath=index-web-en-US-38f8bfeec8f759ca">lucymeryl</a></strong>, to find one that feels right to you 🙌</p></div></div></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="11451472-d9a5-8221-9120-01a1ea897928" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
